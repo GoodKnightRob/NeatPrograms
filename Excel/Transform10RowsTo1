@@ -1,4 +1,3 @@
-Sub Transform10RowsTo1()
 'UpdatedMarch29 with Visual Basic
 Dim InputRng As Range, OutRng As Range
 xTitleId = "KutoolsforExcel"
@@ -8,9 +7,9 @@ Set OutRng = Application.InputBox("Paste to (single cell):", xTitleId, Type:=8)
 Application.ScreenUpdating = False
 xRows = InputRng.Rows.Count 'counts the number of rows
 xCols = InputRng.Columns.Count 'counts the number of columns
-For i = 1 To xRows Step 9
+For i = 1 To xRows Step 10
     i2 = 1
-    i3 = i + 10
+    i3 = i + 9
     sequence = 0
     COO = 0
    ' shift = i - 1
@@ -21,7 +20,7 @@ For i = 1 To xRows Step 9
         InputRng.Rows(i4).Copy OutRng 'Copy the items in row to the inputrow
         If i4 Mod 10 = 0 Then ' when the 10th row has been reached, we shift down
             sequence = 1
-            COO = 24
+            COO = 44
         End If
         Set OutRng = OutRng.Offset(sequence, xCols - COO) 'set the inputrow into the row to copy
         sequence = 0
